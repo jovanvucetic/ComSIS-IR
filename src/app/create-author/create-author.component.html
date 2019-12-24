@@ -1,0 +1,15 @@
+<div class="signin-content">
+<mat-card>
+    <mat-card-content>
+        <h3>Create author</h3>
+        <br />
+        <mat-form-field class="full-width-input">
+            <mat-label>Author: </mat-label>
+            <input matInput type="text" #authorsName />
+        </mat-form-field>
+        <div class="full-width-input">
+            <a mat-raised-button color="secondary" (click)="createAuthor(authorsName.value)">Create author</a>
+        </div>
+    </mat-card-content>
+</mat-card>
+</div>

@@ -1,0 +1,45 @@
+<div class="signin-content">
+<mat-card>
+	<mat-card-content>
+		<div class="col-md-6 offset-md-3">
+			<h3>Search papers</h3>
+			<mat-form-field class="full-width-input">
+				<mat-label>Search for:</mat-label>
+				<input matInput placeholder="Search for text" class="form-control" type="text" #query />
+			</mat-form-field>
+			<br/>
+			<mat-form-field class="full-width-input">
+					<mat-label>Search by property:</mat-label>
+				<mat-select [(value)]="searchProperty">
+					<mat-option *ngFor="let property of searchByProperties" [value]="property">{{property}}</mat-option>
+				</mat-select>
+			</mat-form-field>
+			<div class="full-width-input">
+				<div>
+					<input type="checkbox" #exactMatch (change)="changeExactMatch()" [checked]="exactMatch"/>
+					<label>Exact match</label>
+				</div>
+			</div>
+			<br/>
+			<div class="full-width-input">
+				<button mat-raised-button color="primary" (click)="searchAndDisplay(query.value)" selected="Search" class="btn btn-primary">Search</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card></div>
+
+<div class="container">
+	<span *ngIf="isSuccessful || noneSearchHappened; then responseIsSuccessful else responseIsNotSuccessful"></span>
+	<ng-template #responseIsNotSuccessful>Papers for that query has not been found</ng-template>
+	<ng-template #responseIsSuccessful>
+		<ul>
+			<li *ngFor="let i of papers">
+				<div>
+					<h3>{{i.title}}</h3>
+					<p><i>{{i.authors}}</i></p>
+					<p>{{i.paperAbstract}}</p>
+				</div>
+			</li>
+		</ul>
+	</ng-template>
+</div>

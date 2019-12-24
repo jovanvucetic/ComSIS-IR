@@ -1,0 +1,33 @@
+<div class="signin-content">
+    <mat-card>
+            <h3>Register user</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && fields.username.errors }" />
+                    <mat-error  *ngIf="submitted && fields.username.errors" class="invalid-feedback">
+                        <div *ngIf="fields.username.errors.required">Username is required</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fields.password.errors }" />
+                    <mat-error  *ngIf="submitted && fields.password.errors" class="invalid-feedback">
+                        <div *ngIf="fields.password.errors.required">Password is required</div>
+                        <div *ngIf="fields.password.errors.minlength">Password must be at least 6 characters</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && fields.confirmPassword.errors }" />
+                    <mat-error  *ngIf="submitted && fields.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="fields.confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="fields.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </mat-error>
+                </mat-form-field>
+                <div class="form-group">
+                    <button mat-raised-button color="primary" >Register</button>
+                </div>
+            </form>
+        </mat-card>
+</div>
