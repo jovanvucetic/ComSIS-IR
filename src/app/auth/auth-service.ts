@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './user';
 import { WebApiService } from '../utils/web-api-service';
-import { Alert } from 'selenium-webdriver';
 
 const TOKEN = 'TOKEN';
 

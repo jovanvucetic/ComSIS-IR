@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material/app-material-module';
+import { MatPaginatorModule, MatTableModule, MatExpansionModule } from "@angular/material";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Constants } from './utils/constants';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { PublicationDetailsComponent } from './publication-details/publication-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     RegisterUserComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AuthorDetailsComponent,
+    PublicationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    MatPaginatorModule,
+    MatExpansionModule,
+    MatTableModule, 
     HttpClientModule,
     NgMultiSelectDropDownModule
   ],

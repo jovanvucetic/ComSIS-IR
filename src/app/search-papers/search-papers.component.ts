@@ -16,7 +16,8 @@ export class SearchPapersComponent implements OnInit {
   papers;
   isSuccessful: boolean;
   noneSearchHappened : boolean;
-  searchByProperties = [Constants.AbstractSearchProperty, Constants.AuthorsSearchProperty, Constants.TitleSearchProperty];
+  searchByProperties = [Constants.AbstractSearchProperty, Constants.AuthorsSearchProperty, 
+    Constants.TitleSearchProperty, Constants.YearSearchProperty, Constants.WordsSearchProperty];
 
   private exactMatch = true;
   searchProperty = this.searchByProperties[0];
@@ -26,6 +27,10 @@ export class SearchPapersComponent implements OnInit {
       this.noneSearchHappened = false;
       this.displayData(data);
     });
+  }
+
+  authorDetails(authorId : string) {
+    window.open("/authorDetails");
   }
 
   displayData(data) {
@@ -54,6 +59,10 @@ export class SearchPapersComponent implements OnInit {
         return Constants.SearchByAuthorUrl;
       case Constants.TitleSearchProperty:
         return Constants.SearchByTitleUrl;
+      case Constants.YearSearchProperty:
+        return Constants.SearchByYearUrl;
+      case Constants.WordsSearchProperty:
+        return Constants.SearchByWordsUrl;
     }
   }
 

@@ -1,0 +1,20 @@
+<h1>{{this.author.fullName}}</h1>
+<mat-card><b></b>Email: {{this.author.email}}</mat-card>
+<mat-card>Institution: {{this.author.institution}}</mat-card>
+<h2>Publications:</h2>
+<mat-accordion *ngFor="let p of publications">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <a mat-button target="_blank" href="{{p.url}}"><b>{{p.title}}</b></a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <p><b>Year: </b> {{p.year}}</p>
+            <p><b>Type: </b> {{p.type}}</p>
+            <p><b>Venue:</b>{{p.venue}}</p>
+            <p><b>Volume: </b> {{p.volume}}</p>
+            <p><b>Pages: </b> {{p.pages}}</p>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

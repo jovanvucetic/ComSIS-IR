@@ -32,14 +32,27 @@
 	<span *ngIf="isSuccessful || noneSearchHappened; then responseIsSuccessful else responseIsNotSuccessful"></span>
 	<ng-template #responseIsNotSuccessful>Papers for that query has not been found</ng-template>
 	<ng-template #responseIsSuccessful>
-		<ul>
-			<li *ngFor="let i of papers">
-				<div>
-					<h3>{{i.title}}</h3>
-					<p><i>{{i.authors}}</i></p>
-					<p>{{i.paperAbstract}}</p>
-				</div>
-			</li>
-		</ul>
+		<mat-accordion *ngFor="let i of papers">
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<a mat-button [routerLink]="['/publicationDetails', i.id]"><b>{{i.title}}</b></a>
+					</mat-panel-title>
+				  </mat-expansion-panel-header>
+
+				  <mat-card>
+					<div>
+							<span *ngFor="let author of i.authors">
+								<a mat-button [routerLink]="['/authorDetails', author.id]">
+									<b>{{author.fullName}}</b>
+								</a>
+							</span>
+							<br/>
+							<br/>
+						<b><i>Abstract:</i></b> <mat-card-content>{{i.publicationAbstract}}</mat-card-content>
+					</div>
+				</mat-card>
+			</mat-expansion-panel>
+		</mat-accordion>
 	</ng-template>
 </div>

@@ -1,0 +1,12 @@
+<h2>{{this.publication.title}}</h2>
+<mat-card>
+    <b>Authors:</b>
+    <span *ngFor="let author of this.publication.authors">
+        <a mat-button [routerLink]="['/authorDetails', author.id]">
+            <b>{{author.fullName}}</b>
+        </a>
+    </span>
+</mat-card>
+<mat-card><b>Year:</b> {{this.publication.year}}</mat-card>
+<mat-card><b>Abstract:</b> {{this.publication.publicationAbstract}}</mat-card>
+<a mat-stroked-button href="{{this.publication.downloadPath}}">Download PDF</a>

@@ -8,6 +8,9 @@ import { AuthService } from '../auth/auth-service';
 import { CreatePaperRequest } from './request-models/create-paper-request';
 import { RegisterUserRequest } from './request-models/register-user-request';
 
+
+const TOKEN = 'TOKEN';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -63,11 +66,26 @@ export class WebApiService {
      return this.http.post(requestUrl, registerUserRequest);
   }
 
+  getAuthorDetails(authorId : string) {
+    let requestUrl = this.createApiUrl(Constants.AuthorByIdUrl) + authorId;
+    return this.http.get(requestUrl);
+  }
+
+  getDblpPublicationsForAuthor(authorName: string) {
+    let requestUrl = this.createApiUrl(Constants.DblpPublicationsByAuthorsName) + authorName;
+    return this.http.get(requestUrl);
+  }
+
+  getPublicationDetails(publicationId: string) {
+    let requestUrl = this.createApiUrl(Constants.PublicationDetailsUrl) + publicationId;
+    return this.http.get(requestUrl);
+  }
+
   private createApiUrl(endpointUrl : string) {
       return Constants.ApplicationUrl + endpointUrl;
   }
 
   private getAuthorizationHeader() : HttpHeaders {
-    return new HttpHeaders({"Authorization": "Bearer " + AuthService.getToken()})
+    return new HttpHeaders({"Authorization": "Bearer " + localStorage.getItem(TOKEN)})
   }
 }
