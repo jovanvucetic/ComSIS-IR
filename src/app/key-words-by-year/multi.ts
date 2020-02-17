@@ -1,0 +1,1 @@
+export var multi = [{"name":"ontology","series":[{"name":"2009","value":"2"},{"name":"2010","value":"1"},{"name":"2011","value":"4"},{"name":"2012","value":"0"},{"name":"2013","value":"3"},{"name":"2014","value":"3"},{"name":"2015","value":"3"},{"name":"2016","value":"2"},{"name":"2017","value":"1"},{"name":"2018","value":"1"}]}]

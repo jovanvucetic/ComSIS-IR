@@ -8,12 +8,16 @@ import { SearchPapersComponent } from './search-papers/search-papers.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { PublicationDetailsComponent } from './publication-details/publication-details.component';
+import { MostFrequentAuthorsComponent } from './most-frequent-authors/most-frequent-authors.component';
+import { KeyWordsByYearComponent } from './key-words-by-year/key-words-by-year.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'searchPapers', component: SearchPapersComponent },
+  { path: 'mostFrequentAuthors', component: MostFrequentAuthorsComponent},
+  { path: 'keyWordsByYear', component: KeyWordsByYearComponent},
   { path: 'createPaper', component: CreatePaperComponent, canActivate: [AuthGuard] },
   { path: 'registerUser', component: RegisterUserComponent},
   { path: 'authorDetails/:id', component: AuthorDetailsComponent},

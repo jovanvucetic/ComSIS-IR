@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, COMPILER_OPTIONS } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WebApiService } from '../utils/web-api-service';
 import { Constants } from '../utils/constants';
@@ -17,7 +17,7 @@ export class SearchPapersComponent implements OnInit {
   isSuccessful: boolean;
   noneSearchHappened : boolean;
   searchByProperties = [Constants.AbstractSearchProperty, Constants.AuthorsSearchProperty, 
-    Constants.TitleSearchProperty, Constants.YearSearchProperty, Constants.WordsSearchProperty];
+    Constants.TitleSearchProperty, Constants.KeyWordsPropery, Constants.YearSearchProperty, Constants.WordsSearchProperty];
 
   private exactMatch = true;
   searchProperty = this.searchByProperties[0];
@@ -63,6 +63,8 @@ export class SearchPapersComponent implements OnInit {
         return Constants.SearchByYearUrl;
       case Constants.WordsSearchProperty:
         return Constants.SearchByWordsUrl;
+      case Constants.KeyWordsPropery:
+        return Constants.SearchByKeyWords;
     }
   }
 

@@ -1,0 +1,7 @@
+<div class="container">
+        <div *ngFor="let i of authorsStatistics">
+            <mat-card>
+                <a mat-button [routerLink]="['/authorDetails', i.author.id]"><b>{{i.author.fullName}}</b> ({{i.numberOfPublications}} publications)</a>
+            </mat-card>
+        </div>
+</div>

@@ -17,7 +17,6 @@ export class PublicationDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {  
-      console.log(param['id']);
       this.api.getPublicationDetails(param['id']).subscribe((response : PublicationDetailsResponse) => {
         this.publication = response.publication;
       });

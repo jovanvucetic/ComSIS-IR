@@ -1,0 +1,43 @@
+<div class="signin-content">
+    <mat-card>
+        <mat-card-content>
+            <div class="col-md-6 offset-md-3">
+                <h3>Find key word trend: </h3>
+                <mat-form-field class="full-width-input">
+                    <mat-label>Select key word:</mat-label>
+                    <mat-select [(value)]="keyWord">
+                        <mat-option *ngFor="let word of mostFrequentKeyWords" [value]="word">{{word}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="full-width-input">
+				<button mat-raised-button color="primary" (click)="findAndDisplay()" selected="Search" class="btn btn-primary">Find</button>
+			</div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<!-- 
+<div class="container">
+            <div *ngFor="let i of wordTrend">
+                <mat-card>
+                    <b>{{i.year}}</b> ({{i.frequency}})
+                </mat-card>
+            </div>
+</div> -->
+
+<ngx-charts-line-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [timeline]="timeline"
+  [results]="multi"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"
+  >
+</ngx-charts-line-chart>

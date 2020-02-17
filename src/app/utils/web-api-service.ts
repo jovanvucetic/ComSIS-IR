@@ -81,6 +81,21 @@ export class WebApiService {
     return this.http.get(requestUrl);
   }
 
+  getMostFrequentAuthors() {
+    let requestUrl = this.createApiUrl(Constants.MostFrequentAuthors);
+    return this.http.get(requestUrl);
+  }
+
+  getMostFrequentKeyWords() {
+    let requestUrl = this.createApiUrl(Constants.MostFrequentKeyWords);
+    return this.http.get(requestUrl);
+  }
+
+  getKeyWordTrend(keyWord : string) {
+    let requestUrl = this.createApiUrl(Constants.KeyWordTrend) + keyWord;
+    return this.http.get(requestUrl);
+  }
+
   private createApiUrl(endpointUrl : string) {
       return Constants.ApplicationUrl + endpointUrl;
   }

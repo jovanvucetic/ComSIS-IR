@@ -21,6 +21,9 @@ import { Constants } from './utils/constants';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { PublicationDetailsComponent } from './publication-details/publication-details.component';
+import { MostFrequentAuthorsComponent } from './most-frequent-authors/most-frequent-authors.component';
+import { KeyWordsByYearComponent } from './key-words-by-year/key-words-by-year.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { PublicationDetailsComponent } from './publication-details/publication-d
     LoginComponent,
     HomeComponent,
     AuthorDetailsComponent,
-    PublicationDetailsComponent
+    PublicationDetailsComponent,
+    MostFrequentAuthorsComponent,
+    KeyWordsByYearComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { PublicationDetailsComponent } from './publication-details/publication-d
     MatExpansionModule,
     MatTableModule, 
     HttpClientModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    NgxChartsModule
   ],
   providers: [ AuthService, AuthGuard, Constants ],
   bootstrap: [AppComponent]

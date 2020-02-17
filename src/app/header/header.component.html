@@ -4,6 +4,8 @@
     </span>
     <span class="fill-remaining-space"></span>
     <button mat-button routerLink="searchPapers">Search papers</button>
+    <button mat-button routerLink="mostFrequentAuthors">Most frequent authors</button>
+    <button mat-button routerLink="keyWordsByYear">Key words</button>
     <button *ngIf="isLoggedIn$ | async as isLoggedIn" mat-button routerLink="createPaper">CreatePaper</button>
     <button *ngIf="isLoggedIn$ | async as isLoggedIn" mat-button (click)="syncIndex()">Sync index</button>
     <button *ngIf="isLoggedIn$ | async as isLoggedIn else loggedIn" mat-button (click)="onLogout()">Logout</button>
